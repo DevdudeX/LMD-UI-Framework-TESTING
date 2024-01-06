@@ -4,14 +4,13 @@ using ModUiFramework;
 
 // Unity
 using UnityEngine;
+using Il2CppTMPro;
 
 // Megagon
 using Il2CppMegagon.Downhill.UI;
-using Il2CppMegagon.Downhill.UI.Screens.Helper;
-using Il2CppMegagon.Downhill.UI.Screens;
-using Il2CppTMPro;
 using Il2CppMegagon.Downhill.UI.Animations;
-
+using Il2CppMegagon.Downhill.UI.Screens;
+using Il2CppMegagon.Downhill.UI.Screens.Helper;
 
 [assembly: MelonInfo(typeof(CustomModUi), "Mod Ui", "0.0.1", "DevdudeX")]
 [assembly: MelonGame()]
@@ -34,7 +33,6 @@ namespace ModUiFramework
 		public override void OnEarlyInitializeMelon()
 		{
 			instance = this;
-			//MelonEvents.OnGUI.Subscribe(DrawVersionText, 100);
 		}
 
 		public override void OnUpdate()
@@ -57,17 +55,12 @@ namespace ModUiFramework
 			if (Array.IndexOf(whitelistedLoadScenes, sceneName) != -1)
 			{
 				LoggerInstance.Msg($"Scene {sceneName} with build index {buildIndex} has been loaded!");
-
-				// FIXME:
-				//MelonEvents.OnGUI.Subscribe(DrawInfoText, 100);
 			}
 		}
 
 		void GenerateMainMenuButton()
 		{
 			// Find the options menu
-			//UI(Clone)/Canvas3D/Wrapper/SettingsScreen(Clone)/SettingsMenu/Layout_Categories/CategoryButton_Audio/
-
 			// Grab existing buttons and screens
 			_mainMenuScreen = GameObject.Find("UI(Clone)/Canvas3D/Wrapper/MainMenuScreen(Clone)");
 			_settingsScreen = GameObject.Find("UI(Clone)/Canvas3D/Wrapper/SettingsScreen(Clone)");
