@@ -121,7 +121,9 @@ namespace ModUiFramework
 			TextMeshProUGUI categoryBtn_Graphics_TextDisp = _modMenuScreen.transform.Find(btnNav+"CategoryButton_Graphics/TextMeshPro Text_Display").GetComponent<TextMeshProUGUI>();
 			TextMeshProUGUI categoryBtn_Controls_TextDisp = _modMenuScreen.transform.Find(btnNav+"CategoryButton_Controls/TextMeshPro Text_Display").GetComponent<TextMeshProUGUI>();
 			TextMeshProUGUI categoryBtn_Audio_TextDisp = _modMenuScreen.transform.Find(btnNav+"CategoryButton_Audio/TextMeshPro Text_Display").GetComponent<TextMeshProUGUI>();
+
 			TextMeshProUGUI backBtn_TextDisp = _modMenuScreen.transform.Find("ModOptionsMenu/BackButton/Image_ControlsExplanationLeftBackground/TextMeshPro Text_Back").GetComponent<TextMeshProUGUI>();
+			TextMeshProUGUI applyBtn_TextDisp = _modMenuScreen.transform.Find("ModOptionsMenu/ApplyButton/Image_ControlsExplanationRightBackground (1)/TextMeshPro Text_Apply").GetComponent<TextMeshProUGUI>();
 
 			// Make sure all labels are visible
 			categoryBtn_Game_TMP.alpha = 1;
@@ -131,7 +133,10 @@ namespace ModUiFramework
 			categoryBtn_Audio_TextDisp.alpha = 1;
 
 			backBtn_TextDisp.alpha = 1;
-			backBtn_TextDisp.m_text = "Back";	// It seems to default to {0}Back ???
+			backBtn_TextDisp.m_text = "Back";   // It seems to default to {0}Back (guessing it's localization related)
+
+			applyBtn_TextDisp.alpha = 1;
+			backBtn_TextDisp.m_text = "Apply Changes";   // Fixes localization default text
 
 			// Add onClick function to return to the main menu
 			backBtn_TextDisp.GetComponent<UnityEngine.UI.Button>().onClick.AddListener((UnityEngine.Events.UnityAction)LeaveModMenuScreen);
