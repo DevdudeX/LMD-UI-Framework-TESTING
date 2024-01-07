@@ -136,7 +136,7 @@ namespace ModUiFramework
 			backBtn_TextDisp.m_text = "Back";   // It seems to default to {0}Back (guessing it's localization related)
 
 			applyBtn_TextDisp.alpha = 1;
-			backBtn_TextDisp.m_text = "Apply Changes";   // Fixes localization default text
+			applyBtn_TextDisp.m_text = "Apply Changes";   // Fixes localization default text
 
 			// Add onClick function to return to the main menu
 			backBtn_TextDisp.GetComponent<UnityEngine.UI.Button>().onClick.AddListener((UnityEngine.Events.UnityAction)LeaveModMenuScreen);
