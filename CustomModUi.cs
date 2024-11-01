@@ -21,6 +21,7 @@ namespace ModUiFramework
 		// Keep this updated!
 		private const string MOD_VERSION = "0.0.1";
 		public static CustomModUi instance;
+		public MenuManager MenuManager { get; private set; }
 
 		private GameObject _mainMenuScreen;
 		private GameObject _settingsScreen;
@@ -81,6 +82,9 @@ namespace ModUiFramework
 			_modMenuBtn.name = "ListButton_Mods";
 			GameObject modMenuBtnTextDisplay = _modMenuBtn.transform.Find("Elements/TextMeshPro Text_OptionsButton").gameObject;
 			TextMeshProUGUI tmpComponent = modMenuBtnTextDisplay.GetComponent<TextMeshProUGUI>();
+
+			// FIX:
+			//UnityEngine.CanvasGroup canvasGroupComponent = _modMenuBtn.GetComponent<CanvasGroup>();
 			tmpComponent.m_text = "Mods";
 
 			// Add onClick function to open the mod menu
@@ -91,6 +95,8 @@ namespace ModUiFramework
 			RemoveChildComponents<ListButton>(_modMenuBtn);
 			RemoveChildComponents<UIAnimation_FadeContainer>(_modMenuBtn);
 			RemoveChildComponents<InteractiveUIElement>(modMenuBtnTextDisplay);
+
+
 
 			// Create a new menu screen
 			_modMenuScreen = GameObject.Instantiate(_settingsScreen, _settingsScreen.transform.parent);
